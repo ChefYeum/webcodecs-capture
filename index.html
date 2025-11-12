@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WebCodecs Capture Demo</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+  <main>
+    <section class="hero">
+      <h1>WebCodecs Capture Timeline</h1>
+      <p>Webcam frames illuminated in a binary sequence, captured and ready for review.</p>
+    </section>
+
+    <div class="preview-shell">
+      <video id="live-preview" class="preview-video" width="640" height="480" muted autoplay playsinline hidden></video>
+      <canvas id="preview" width="640" height="480"></canvas>
+    </div>
+
+    <section class="controls" aria-label="Flash pattern configuration">
+      <label for="pattern-input">Flash Pattern</label>
+      <div class="pattern-control">
+        <input id="pattern-input" type="text" inputmode="latin" autocomplete="off" spellcheck="false" maxlength="20"
+          placeholder="Sequence of B and W" aria-describedby="pattern-hint">
+        <button id="start-button" type="button">Start Capture</button>
+      </div>
+      <p id="pattern-hint" class="control-hint">
+        Use <strong>B</strong> for black and <strong>W</strong> for white. 
+      </p>
+    </section>
+    <section id="gallery-view" aria-live="polite" hidden>
+      <div class="gallery-display">
+        <img id="selected-frame" alt="Selected capture preview" width="100%" height="480">
+      </div>
+      <div class="gallery-thumbnails" id="capture-grid"></div>
+    </section>
+
+    <p id="error" role="alert"></p>
+  </main>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
